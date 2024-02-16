@@ -9,7 +9,7 @@ class Download:
     
     def start_download(self):
         process = subprocess.run(
-          [f'ungoliant download -t {self.task} ./{self.index} {self.dst}/{self.index.split('/')[-1]}'],
+          [f'ungoliant download -t {self.task} ./{self.index} {self.dst}/{self.index.split("/")[-1]}'],
             shell=True, 
             capture_output=True, 
             text=True  
