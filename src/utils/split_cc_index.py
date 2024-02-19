@@ -2,6 +2,16 @@ import os
 import numpy as np
 
 def split_cc(cc_index: str, num_per_file: int, dst: str):
+    '''
+        Splite index data to small chunks
+        -----------------------
+        - cc_index: org file paths
+        - num_per_file: 
+            <int>
+            amount of index per file after spling
+        - dst: destination to store the output
+        
+    '''
     with open(cc_index, 'r', encoding='utf-8') as wetpaths:
         data = np.array(wetpaths.readlines())
     
