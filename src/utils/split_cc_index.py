@@ -23,4 +23,4 @@ def split_cc(cc_index: str, num_per_file: int, dst: str):
     return True
 
 if __name__ == '__main__':
-    split_cc('src/wet_paths/0.cc-2023-50-wet.paths', 10, 'test')
+    split_cc('cc-2023-50-wet.paths', 50, 'src/wet_paths')

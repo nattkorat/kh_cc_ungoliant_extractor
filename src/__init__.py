@@ -1,2 +1,2 @@
-import download
-import extract
+from . import download
+from . import extract
