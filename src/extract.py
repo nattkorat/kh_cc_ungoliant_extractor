@@ -3,11 +3,18 @@ import subprocess
 
 
 class Extract:
-    def __init__(self, path_data: str, lang_model: str, dst: str, all_lang: bool = False):
+    '''
+    path_data: directory of wet compress data
+    lang_model: model path
+    dst: extracted directory
+    is_all_lang: Store all languages, default = False
+    
+    '''
+    def __init__(self, path_data: str, lang_model: str, dst: str, is_all_lang: bool = False):
         self.path_data = path_data
         self.lang_model = lang_model
         self.dst = dst
-        self.all_lang = all_lang
+        self.is_all_lang = is_all_lang
     
     def start_extract(self):
         extract = subprocess.run(
@@ -22,7 +29,7 @@ class Extract:
         subprocess.run(
             [f'rm -rf {self.path_data}']
         )
-        if self.all_lang:
+        if self.is_all_langall_lang:
             return True
         
         filename = self.path_data.split("/")[-1] + ".jsonl"

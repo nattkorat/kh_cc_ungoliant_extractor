@@ -2,3 +2,6 @@ __pycache__/
 
 *.jsonl
 *.paths
+lid.176.bin
+/wet_data
+*.gz
