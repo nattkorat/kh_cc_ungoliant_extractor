@@ -1,4 +1,6 @@
 import os
+import time
+import datetime
 import argparse
 from download import Download
 from extract import Extract
@@ -43,6 +45,10 @@ def run(path_indexes):
     cc_paths = wet_paths.get_files(path_indexes)
     for cc_path in cc_paths:
         # 1. download
+        ts_download = time.time()
+        print(f"Indexes: {cc_path}")
+        print(f"Download start at: {datetime.datetime.now()}")
+
         download = Download(cc_path, WET_DATA_DIR)
         is_downloaded = download.start_download()
         
@@ -50,16 +56,20 @@ def run(path_indexes):
         if not is_downloaded:
             print(f"Failed download:", cc_path)
             continue
+        print(f"Download finish at {datetime.datetime.now()}")
+        print(f"Download completed for {(time.time() - ts_download):.2f} sec.")
+        
+        ts_extract = time.time()
         print("Start extracting...")
         extract = Extract(WET_DATA_DIR, LANG_MODEL, EXTRACTED_DIR, cc_path)
         extract.start_extract()
-        print("done")
-        break
+        print(f"Extract completed for {(time.time() - ts_extract):.2f} sec")
+        print("Done!")
+
 
 if __name__ == '__main__':
     args = parser.parse_args()
     path = args.path
-    # dst = args.dst
 
     run(path)
     

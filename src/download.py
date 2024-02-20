@@ -28,7 +28,7 @@ class Download:
         
         dir = "/".join(completed_dir[:-1]) + "/completed/"
         os.makedirs(dir, exist_ok=True)
-        os.rename(self.index, dir + + completed_dir[-1])
+        os.rename(self.index, dir + completed_dir[-1])
 
         return True
         
